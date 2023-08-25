@@ -1,0 +1,51 @@
+/* 1번 */
+/* body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 3rem;
+  background-color: #2d2c2c;
+  color: #959090;
+} */
+
+
+
+
+/* 2번 */
+/* body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 3rem;
+  background-color: #2d2c2c;
+  color: #959090;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  font: inherit;
+  padding: 0.5rem;
+  background-color: #474545;
+  border: none;
+  border-radius: 4px;
+  color: white;
+} */
+
+
+
+/* 3번 */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 3rem;
+  background-color: #2d2c2c;
+  color: #959090;
+  text-align: center;
+}
+
+#counter {
+  color: #d7adff;
+  font-size: 3rem;
+}
