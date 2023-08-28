@@ -36,6 +36,7 @@ input {
 
 
 /* 3번 */
+/*
 body {
   font-family: sans-serif;
   margin: 0;
@@ -48,4 +49,24 @@ body {
 #counter {
   color: #d7adff;
   font-size: 3rem;
+}
+*/
+
+/* 4번 */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 3rem;
+    background-color: #2d2c2c;
+    color: #959090;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #444047;
+    color: #b2adad;
+    border: 2px solid #8567fd;
 }
