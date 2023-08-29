@@ -137,31 +137,125 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 //4번
-import React from "react";
+// import React from "react";
+// import "./styles.css";
+// import Todo from "./Todo";
+
+// const DUMMY_TODOS = ["Learn React", "Practice React", "Profit!", "아수라방구라"];
+
+// const App = () => {
+//   return (
+//     <ul>
+//       {DUMMY_TODOS.map((todo) => (
+//         <Todo text={todo} />
+//       ))}
+//     </ul>
+//     /*
+//     배열이니까 하나하나 따로 출력해주기 위해서 map 함수이용
+//     mpa 함수 하나하나 매개변수를 요소..?
+//     변수 안에 들어가있는 요소들이 동적으로 출력
+//     DUMMY_TODOS 에 아수라 방구라라고 추가해주면 저절로 추가가 돼서 출력이됨
+
+//     <ul>
+//       <Todo text={DUMMY_TODOS[0]} />
+//       <Todo text={DUMMY_TODOS[1]} />
+//       <Todo text={DUMMY_TODOS[2]} />
+//     </ul>
+//     맵 배우기 전에는 이런식으로 했었음 하지만 동적으로 출력하기위해서는
+//     map함수를 사용한 위 방법으로 해야함
+//     */
+//   );
+// };
+
+//export default App;
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+//5번
+import React, { useState } from "react";
 import "./styles.css";
-import Todo from "./Todo";
 
-const DUMMY_TODOS = ["Learn React", "Practice React", "Profit!", "아수라방구라"];
+/* 첫번째 방법 */
+// export default function App() {
+//   const [isDeleting, setisDeleting] = useState(false);//초기값 false로 넣어줌
+//   //딜리트가 클릭되면 상태가 true로 바뀌고 isDeleting이 true로 세팅되면서 경고창이 보여야함
 
-const App = () => {
+//   const delteHandler = () => {
+//     setisDeleting(true);//onclick됐을때 isDeleting이 true로 바뀌고
+//   }
+
+//   const proceedHandler = () => {
+//     setisDeleting(false);
+//   }
+
+//   return (
+//       <div>
+//         {isDeleting ?
+//         <div id="alert">
+//           <h2>Are you sure?</h2>
+//           <p>These changes can't be reverted!</p>
+//           <button onClick={proceedHandler}>Proceed</button>
+//         </div> : ''}
+//         <button onClick={delteHandler}>Delete</button>
+//       </div>
+//     );
+//     //isDeleting의 상태에 따라서 화면에 출력할 결과물을 지정할수있어야함
+//   //isDeleting참일경우에 jsx코드가 뜨고 false면 안뜨고
+// }
+
+/* 두번째 방법 */
+// export default function App() {
+//   const [isDeleting, setisDeleting] = useState(false);//초기값 false로 넣어줌
+//   //딜리트가 클릭되면 상태가 true로 바뀌고 isDeleting이 true로 세팅되면서 경고창이 보여야함
+
+//   const delteHandler = () => {
+//     setisDeleting(true);//onclick됐을때 isDeleting이 true로 바뀌고
+//   }
+
+//   const proceedHandler = () => {
+//     setisDeleting(false);
+//   }
+
+//   return (
+//       <div>
+//         {isDeleting && (
+//         <div id="alert">
+//           <h2>Are you sure?</h2>
+//           <p>These changes can't be reverted!</p>
+//           <button onClick={proceedHandler}>Proceed</button>
+//         </div> )}
+//         <button onClick={delteHandler}>Delete</button>
+//       </div>
+//     ); //&& 활용해서 true면 jsx코드를 출력해줌 true일 경우에만 출력해줄테니까
+// }
+
+/* 세번째 방법 */
+export default function App() {
+  const [isDeleting, setisDeleting] = useState(false);
+
+  const deleteHandler = () => {
+    setisDeleting(true);
+  };
+
+  const proceedHandler = () => {
+    setisDeleting(false);
+  };
+
+  let warning = null; //아예 변수를 하나 만들어서 사용 jsx코드에는 최대한 jsx코드만 남도록 하는게 최선의 방법
+  if (isDeleting) {
+    warning = (
+      <div id="alert">
+        <h2>Are you sure?</h2>
+        <p>These changes can't be reverted!</p>
+        <button onClick={proceedHandler}>Proceed</button>
+      </div>
+    );
+  }
+
   return (
-    <ul>
-      {DUMMY_TODOS.map((todo) => (
-        <Todo text={todo} />
-      ))}
-    </ul>//배열이니까 하나하나 따로 출력해주기 위해서 map 함수이용
-    //mpa 함수 하나하나 매개변수를 요소..?
-    //변수 안에 들어가있는 요소들이 동적으로 출력
-    //DUMMY_TODOS 에 아수라 방구라라고 추가해주면 저절로 추가가 돼서 출력이됨
-
-    // <ul>
-    //   <Todo text={DUMMY_TODOS[0]} />
-    //   <Todo text={DUMMY_TODOS[1]} />
-    //   <Todo text={DUMMY_TODOS[2]} />
-    // </ul>
-    //맵 배우기 전에는 이런식으로 했었음 하지만 동적으로 출력하기위해서는
-    //map함수를 사용한 위 방법으로 해야함 
+    <div>
+      {warning} {/* jsx코드 빼낸 자리에 jsx코드 담음 변수 넣어줌 */}
+      <button onClick={deleteHandler}>Delete</button>
+    </div>
   );
-};
-
-export default App;
+}
