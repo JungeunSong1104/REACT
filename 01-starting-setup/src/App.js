@@ -73,7 +73,8 @@ const App = () => {
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
-      {/* 출력을 담당하는 Expenses */}
+      {/* 출력을 담당하는 Expenses 
+      배열의 형태인 expenses*/}
     </div>
   );
 };

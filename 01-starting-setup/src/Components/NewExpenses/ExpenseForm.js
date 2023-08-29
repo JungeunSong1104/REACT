@@ -61,16 +61,16 @@ const ExpenseForm = (props) => {
     // setUserInput({
     //   ...userInput,
     //   enteredAmount: event.target.value,
-    // }); 
-       //객체 형태로 저장함
+    // });
+    //객체 형태로 저장함
   };
   const DateChangedHandler = (event) => {
     setEnteredDate(event.target.value);
     // setUserInput({
     //   ...userInput,
     //   enteredDate: event.target.value,
-    // }); 
-       //객체 형태로 저장함
+    // });
+    //객체 형태로 저장함
   };
 
   // const inputChangedHandler = (identifier, value) => {
@@ -88,7 +88,8 @@ const ExpenseForm = (props) => {
     //preventDefault : event가 가진함수, 서버리퀘스트를 막아줌?
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
+      //저장되는 데이터가 전부 문자열임 오류를 예방하려면 문자열을 숫자형으로 바꿔줘야함 앞에 +만 붙여주면됨
       date: new Date(enteredDate),
     };
 
@@ -98,6 +99,7 @@ const ExpenseForm = (props) => {
     setEnteredAmount("");
     setEnteredDate("");
   };
+
   return (
     <form onSubmit={submitHandler}>
       {/* 
@@ -162,6 +164,11 @@ const ExpenseForm = (props) => {
       {/* reload의 문제점 reload하면 자바스크립트의 처음부터 끝까지 돌아감?
             버튼을 눌렀을 때 서버에 요청하면 안됨 아이템이 추가가 되어야하지*/}
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
+        {/* 클릭됐을때 뉴익스펜스에 있는 상위 컴포넌트로 올려주는 방식을 사용해야겠지
+        프랍을 사용해서 프랍안에 함수를 넣고 받아서 매개변수로 받아주자 
+        뉴익스펜스에서 함수를 하나 만들어주자 stopEditingHandler 
+        props.onCancel 뉴익스펜스에 들어잇는 함수기 때문에 뉴익스펜스에서 실행됨 */}
         <button type="submit">Add Expense</button>
       </div>
     </form>

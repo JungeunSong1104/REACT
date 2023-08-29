@@ -7,6 +7,7 @@ const ExpensesFilter = (props) => {
     /*
     함수의 주소를 넣은 곳이 prop인 onChangeFilter이기 때문에
     전달된 prop의 이름으로 실행시키는것
+    props가 가진 onChangeFilter
     */
   };
 
@@ -17,6 +18,7 @@ const ExpensesFilter = (props) => {
         <select value={props.selected} onChange={dropdownChangeHandler}>
           {/* 셀렉트 필터가 동작을 할 때 값을 선택할텐데 값을 선택할때 발생하는 이벤트 이름이
           인풋태그같은거는 대부분 onChange 이용 */}
+          <option value='2023'>2023</option>
           <option value='2022'>2022</option>
           <option value='2021'>2021</option>
           <option value='2020'>2020</option>

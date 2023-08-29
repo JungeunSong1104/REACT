@@ -1,4 +1,4 @@
-import React, { useState } from "react"; //추가로 { useState } 하나 더 임포트해주자
+import React from "react"; //추가로 { useState } 하나 더 임포트해주자
 //useState : 리액트에서 가장 중요한 키컨텐트
 //state란 :
 //props란 :
@@ -11,7 +11,7 @@ card를 사용하고있음 그전에는 컴포넌트에 같이있었지만 지�
 */
 
 const ExpenseItem = (props) => {
-  const [title, setTitle] = useState(props.title); //초기값 정해줄수있음 props.title
+//  const [title, setTitle] = useState(props.title); //초기값 정해줄수있음 props.title
   /*
   setTitle은 함수임 세터함수
   setTitle은title 변수값을 세팅하기위한 함수
@@ -40,15 +40,17 @@ const ExpenseItem = (props) => {
   */
 
   return (
+    <li>
     <Card className="expense-item">
       {/* <div className="">{props.date.toLocaleDateString()}</div> */}
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{title}</h2>
+      <h2>{props.title}</h2>
       </div>
       <div className="expense-item__price">${props.amount}</div>
      {/*  <button onClick={clickHandler}>Change title</button>*/}
     </Card>
+    </li>
   );
   /*
   함수는 익명함수가 될수도 내가 정의한 함수가 될수도있음
